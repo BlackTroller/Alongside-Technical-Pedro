@@ -128,3 +128,34 @@
     @apply font-sans;
   }
 }
+
+/* Geocoder - ALWAYS light styles for readability */
+.leaflet-control-geocoder {
+  font-family: inherit;
+}
+
+.leaflet-control-geocoder form input {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #cccccc !important;
+  padding: 4px 6px !important;
+  border-radius: 4px !important;
+}
+
+.leaflet-control-geocoder form input::placeholder {
+  color: #666666 !important;
+}
+
+.leaflet-control-geocoder .details {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #cccccc !important;
+}
+
+.leaflet-control-geocoder .details a {
+  color: #000000 !important;
+}
+
+.leaflet-control-geocoder .details a:hover {
+  background-color: #f0f0f0 !important;
+}

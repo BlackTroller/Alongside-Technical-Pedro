@@ -1,4 +1,6 @@
-import { signup } from "../actions"; // Importa a action de signup
+"use client";
+
+import { signup } from "../actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -10,21 +12,23 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { useTranslations } from "@/hooks/use-translations";
 
 export default function SignupPage() {
+  const { t } = useTranslations();
+
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle className="text-2xl text-center">Criar Conta</CardTitle>
+        <CardTitle className="text-2xl text-center">{t("Auth.signup")}</CardTitle>
         <CardDescription className="text-center">
-          Preencha os dados abaixo para se registar na plataforma.
+          {t("Profile.description")}
         </CardDescription>
       </CardHeader>
       <CardContent>
-        {/* Ligação à action de signup que criámos anteriormente */}
-        <form action={signup} className="space-y-4">
+        <form action={signup as any} className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Nome Completo</label>
+            <label className="text-sm font-medium">{t("Auth.name")}</label>
             <Input
               name="name"
               type="text"
@@ -33,7 +37,7 @@ export default function SignupPage() {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Email</label>
+            <label className="text-sm font-medium">{t("Auth.email")}</label>
             <Input
               name="email"
               type="email"
@@ -42,7 +46,7 @@ export default function SignupPage() {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Password</label>
+            <label className="text-sm font-medium">{t("Auth.password")}</label>
             <Input
               name="password"
               type="password"
@@ -51,19 +55,19 @@ export default function SignupPage() {
             />
           </div>
           <Button type="submit" className="w-full">
-            Criar conta
+            {t("Auth.signup")}
           </Button>
         </form>
       </CardContent>
 
       <CardFooter className="flex flex-col space-y-2 text-center">
         <p className="text-sm text-muted-foreground">
-          Já tem uma conta?{" "}
+          {t("Auth.hasAccount")}{" "}
           <Link
             href="/login"
             className="text-primary font-semibold hover:underline decoration-2 underline-offset-4"
           >
-            Faça login aqui
+            {t("Auth.loginLink")}
           </Link>
         </p>
       </CardFooter>

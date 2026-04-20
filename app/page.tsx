@@ -1,13 +1,11 @@
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="pt" className="h-full">
-      <body className="h-full antialiased">
-        {children} {/* SEM ISTO, NADA APARECE NO ECRÃ */}
-      </body>
-    </html>
-  );
+// app/page.tsx
+import { redirect } from "next/navigation";
+
+export default function RootPage() {
+  // Mal o utilizador acede a "/", ele é enviado para o dashboard
+  redirect("/dashboard");
+
+  // O return null é necessário para o TypeScript,
+  // embora o redirect aconteça antes.
+  return null;
 }

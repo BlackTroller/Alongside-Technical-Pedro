@@ -17,7 +17,13 @@ export async function login(formData: FormData) {
     redirect('/login?error=Could not authenticate user')
   }
 
-  redirect('/dashboard')
+redirect('/dashboard')
+}
+
+export async function logout() {
+  const supabase = await createClient()
+  await supabase.auth.signOut()
+  redirect('/login')
 }
 
 export async function signup(formData: FormData) {
