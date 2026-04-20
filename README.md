@@ -72,13 +72,7 @@ supabase start
 supabase db reset
 ```
 
-## Wiki / Documentação
-
-Para mais informações sobre o projeto, arquiteturas e diagramas, consulta a [Wiki](https://github.com/BlackTroller/Alongside-Technical-Pedro/wiki).
-
-Inclui diagramas UML, diagramas de arquitetura, casos de uso, e muito mais.
-
-## License
+## Project Structure
 
 ```
 ├── app/                    # Next.js App Router pages
@@ -95,11 +89,11 @@ Inclui diagramas UML, diagramas de arquitetura, casos de uso, e muito mais.
 └── types/                # TypeScript types
 ```
 
-## Wiki / Documentação
+## Wiki / Documentation
 
-Para mais informações sobre o projeto, arquiteturas e diagramas, consulta a [Wiki](https://github.com/BlackTroller/Alongside-Technical-Pedro/wiki).
+For more information about the project, architecture and diagrams, check the [Wiki](https://github.com/BlackTroller/Alongside-Technical-Pedro/wiki).
 
-Inclui diagramas UML, diagramas de arquitetura, casos de uso, e muito mais.
+Includes UML diagrams, architecture diagrams, use cases, and more.
 
 ## License
 
