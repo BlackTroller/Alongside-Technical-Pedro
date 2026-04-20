@@ -72,7 +72,13 @@ supabase start
 supabase db reset
 ```
 
-## Project Structure
+## Wiki / Documentação
+
+Para mais informações sobre o projeto, arquiteturas e diagramas, consulta a [Wiki](https://github.com/BlackTroller/Alongside-Technical-Pedro/wiki).
+
+Inclui diagramas UML, diagramas de arquitetura, casos de uso, e muito mais.
+
+## License
 
 ```
 ├── app/                    # Next.js App Router pages
@@ -88,6 +94,12 @@ supabase db reset
 │   └── migrations/       # SQL migrations
 └── types/                # TypeScript types
 ```
+
+## Wiki / Documentação
+
+Para mais informações sobre o projeto, arquiteturas e diagramas, consulta a [Wiki](https://github.com/BlackTroller/Alongside-Technical-Pedro/wiki).
+
+Inclui diagramas UML, diagramas de arquitetura, casos de uso, e muito mais.
 
 ## License
 
