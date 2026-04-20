@@ -66,9 +66,9 @@ export default function DashboardLayout({
       {/* SIDEBAR DESKTOP */}
       <aside className="hidden w-64 border-r bg-background md:block">
         <div className="flex h-full flex-col p-4">
-          <div className="mb-8 px-2 font-bold text-xl tracking-tight">
-            Alongside
-          </div>
+          <Link href="/" className="mb-8 px-2">
+            <img src="/logo.svg" alt="Alongside" className="h-8" />
+          </Link>
 
           <nav className="flex-1 space-y-1">
             {menuItems.map((item) => (

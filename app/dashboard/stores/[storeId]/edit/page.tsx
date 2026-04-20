@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
   CardContent,
@@ -10,17 +9,13 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import {
-  Store,
   MapPin,
   ArrowLeft,
   Save,
-  Plus,
-  Trash2,
   Phone,
   Globe,
   Loader2,
@@ -68,11 +63,6 @@ export default function EditStorePage({
   const [coords, setCoords] = useState({ lat: "41.1579", lng: "-8.6291" });
 
   const [addressQuery, setAddressQuery] = useState("");
-
-  const [storeProducts, setStoreProducts] = useState([
-    { id: "p1", name: "Hambúrguer Clássico", price: "8.50", stock: 20 },
-    { id: "p2", name: "Batatas Fritas", price: "2.50", stock: 50 },
-  ]);
 
   useEffect(() => {
     async function loadStore() {
@@ -176,14 +166,14 @@ export default function EditStorePage({
   };
 
   if (loading) {
-  return (
-    <div className="flex items-center justify-center min-h-[400px]">
-      <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-    </div>
-  );
-}
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
 
-return (
+  return (
     <div className="max-w-5xl mx-auto space-y-6 pb-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -193,7 +183,9 @@ return (
             </Link>
           </Button>
           <div>
-            <h2 className="text-3xl font-bold tracking-tight">{t("Stores.editStore")}</h2>
+            <h2 className="text-3xl font-bold tracking-tight">
+              {t("Stores.editStore")}
+            </h2>
             <p className="text-muted-foreground text-sm font-mono">
               ID: {storeId}
             </p>
@@ -213,14 +205,8 @@ return (
         </Button>
       </div>
 
-      <Tabs defaultValue="details" className="space-y-6">
-        <TabsList className="grid w-full max-w-[400px] grid-cols-2">
-          <TabsTrigger value="details">{t("Stores.storeDetails")}</TabsTrigger>
-          <TabsTrigger value="inventory">{t("Stores.products")}</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="details" className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-5">
+      <div className="space-y-6">
+        <div className="grid gap-6 md:grid-cols-5">
             <div className="md:col-span-3 space-y-6">
               <Card>
                 <CardHeader>
@@ -239,7 +225,9 @@ return (
                         className={errors.name ? "border-destructive" : ""}
                       />
                       {errors.name && (
-                        <p className="text-xs text-destructive">{errors.name}</p>
+                        <p className="text-xs text-destructive">
+                          {errors.name}
+                        </p>
                       )}
                     </div>
                     <div className="space-y-2">
@@ -259,27 +247,28 @@ return (
                         />
                       </div>
                       {errors.phone && (
-                        <p className="text-xs text-destructive">{errors.phone}</p>
+                        <p className="text-xs text-destructive">
+                          {errors.phone}
+                        </p>
                       )}
                     </div>
                   </div>
                   {errors._form && (
                     <p className="text-sm text-destructive">{errors._form}</p>
-)}
+                  )}
 
                   <div className="flex items-center justify-between p-4 rounded-lg border bg-muted/50">
                     <div className="space-y-0.5">
-                      <Label className="text-base">{t("Stores.storeActive")}</Label>
+                      <Label className="text-base">
+                        {t("Stores.storeActive")}
+                      </Label>
                       <p className="text-sm text-muted-foreground">
                         {t("Stores.storeActiveHint")}
                       </p>
                     </div>
-                    <Switch
-                      checked={isActive}
-                      onCheckedChange={setIsActive}
-                    />
+                    <Switch checked={isActive} onCheckedChange={setIsActive} />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label>{t("Stores.streetLabel")}</Label>
                     <Input
@@ -339,7 +328,9 @@ return (
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">{t("Stores.coordinates")}</CardTitle>
+                  <CardTitle className="text-sm">
+                    {t("Stores.coordinates")}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4">
@@ -362,45 +353,26 @@ return (
               <Card className="h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-primary" /> {t("Stores.map")}
+                    <MapPin className="h-5 w-5 text-primary" />{" "}
+                    {t("Stores.map")}
                   </CardTitle>
-                  <CardDescription>
-                    {t("Stores.mapHint")}
-                  </CardDescription>
+                  <CardDescription>{t("Stores.mapHint")}</CardDescription>
                 </CardHeader>
                 <CardContent className="h-[450px]">
                   <div className="h-full w-full rounded-md border overflow-hidden">
-                    <StoreMapSelector 
+                    <StoreMapSelector
                       onLocationSelect={handleLocationSelect}
-                      initialPosition={[parseFloat(coords.lat), parseFloat(coords.lng)]}
+                      initialPosition={[
+                        parseFloat(coords.lat),
+                        parseFloat(coords.lng),
+                      ]}
                     />
                   </div>
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="inventory">
-          {/* ... Conteúdo do Inventário (Tabela de produtos) ... */}
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
-              <div>
-                <CardTitle>{t("Stores.availableProducts")}</CardTitle>
-                <CardDescription>
-                  {t("Stores.inventoryHint")}
-                </CardDescription>
-              </div>
-              <Button className="gap-2">
-                <Plus className="h-4 w-4" /> {t("Stores.linkProduct")}
-              </Button>
-            </CardHeader>
-            <CardContent>
-              {/* (A tua tabela de produtos entra aqui) */}
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+        </div>
+      </div>
     </div>
   );
 }

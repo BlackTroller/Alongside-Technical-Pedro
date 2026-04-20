@@ -131,6 +131,9 @@
   "Common": {
     "loading": "A carregar...",
     "save": "Guardar",
+    "notFound": "Página não encontrada",
+    "notFoundDesc": "A página que procuras não existe ou foi movida.",
+    "backToHome": "Voltar ao início",
     "cancel": "Cancelar",
     "delete": "Eliminar",
     "edit": "Editar",

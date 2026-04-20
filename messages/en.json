@@ -139,6 +139,9 @@
   "Common": {
     "loading": "Loading...",
     "save": "Save",
+    "notFound": "Page not found",
+    "notFoundDesc": "The page you're looking for doesn't exist or has been moved.",
+    "backToHome": "Back to home",
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
